@@ -29,6 +29,22 @@ module "vpc" {
     public_subnets = var.vpc_public_subnets
 
     enable_nat_gateway = var.vpc_enable_nat_gateway
+  
+  ingress {
+    from_port = "0"
+    to_port   = "0"
+    protocol  = "-1"
+    self      = true
+  }
+
+  egress {
+    from_port = "0"
+    to_port   = "0"
+    protocol  = "-1"
+    self      = "true"
+  }
+  
+  
 
     tags = var.vpc_tags
 }
